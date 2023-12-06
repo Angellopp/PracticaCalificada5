@@ -305,6 +305,19 @@ And I should not see the following movies:
 ```
 2. Dado que es tedioso repetir pasos como When I check the "PG" checkbox, And I check the "R" checkbox, etc., crea una definición de paso que coincida con un paso como, por ejemplo: Given I check the following ratings: G, PG, R. Esta definición de un solo paso solo debe marcar las casillas especificadas y dejar las demás casillas como estaban.
 
+Añadimos el siguiente paso en el archivo ``features/movies_step.rb``:
+
+```ruby
+Given /^I check the following ratings: (.*)$/ do |rating_list|
+        rating_list.split(', ').each do |rating|
+            check("ratings_#{rating}")
+        end
+    end
+```
+
+En este paso, se espera recibir un argumento llamado ``rating_list``,
+ que es una lista de calificaciones separadas por comas. El código divide esta lista en calificaciones individuales y, luego, itera sobre cada calificación. Dentro del ciclo, se marca una casilla de verificación correspondiente a cada calificación utilizando la función ``check``.
+
 
 ### PArte 3: Para el siguiente ejercicio utiliza la lista de proyectos Rails de código abierto en Open Source Rails: https://github.com/gramantin/awesome-rails#open-source-rails-apps 
 
