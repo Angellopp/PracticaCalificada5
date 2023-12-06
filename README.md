@@ -276,4 +276,49 @@ bin/rails server -b 0.0.0.0
 Y verificamos que funciona correctamente la pagina:
 ![Alt text](image-4.png)
  Y que tenems las pruebas pendientes:
- ![Alt text](image-5.png)
+![Alt text](image-5.png)
+
+### PArte 3: Para el siguiente ejercicio utiliza la lista de proyectos Rails de código abierto en Open Source Rails: https://github.com/gramantin/awesome-rails#open-source-rails-apps 
+
+## 1.	Describa uno o más patrones de diseño que podrían ser aplicados al diseño del sistema.
+
+## 2.	Dado un sistema simple que responde a una historia de usuario concreta, analice y elija un paradigma de diseño adecuado
+## 3.	Analice y elija una arquitectura software apropiada que se ajuste a una historia de usuario concreta de este sistema. ¿La implementación en el sistema de esa historia de usuario refleja su idea de arquitectura?
+
+### Proyecto Calagator:
+
+#### Patrones de Diseño:
+
+- Observer Pattern: Se aplica para notificar a los usuarios sobre cambios en los eventos a los que se han registrado. Cada usuario interesado en un evento se registra como observador, y cuando hay cambios, se notifican automáticamente.
+#### Paradigma de Diseño escogido:
+
+- Paradigma de Diseño Orientado a Objetos (OOP): Al modelar eventos como objetos con propiedades y métodos, se sigue el paradigma OOP. Cada evento es una instancia de una clase con atributos y comportamientos.
+#### Arquitectura Software:
+
+- Arquitectura de Microservicios: Calagator podría beneficiarse de una arquitectura de microservicios, donde cada función (manejo de eventos, gestión de usuarios, etc.) se implementa como un servicio independiente. Esto facilita la escalabilidad y pienso tambien el mantenimiento seria mas sencillo.
+
+### Proyecto Bike Index:
+
+#### Patrones de Diseño:
+
+- Singleton Pattern: Aplicado para garantizar una única instancia de la clase encargada del registro de bicicletas. Asegura que haya una única fuente de verdad para los datos de registro.
+Command Pattern: Puede ser utilizado para representar comandos específicos relacionados con el registro de bicicletas. Por ejemplo, un comando para agregar una bicicleta al índice.
+#### Paradigma de Diseño:
+
+- Programación Orientada a Objetos (OOP): El paradigma OOP es apropiado, ya que las bicicletas y los usuarios se pueden modelar como objetos con atributos y métodos.
+#### Arquitectura Software:
+
+- Arquitectura MVC (Modelo-Vista-Controlador): Bike Index sigue un enfoque de MVC, donde la lógica de negocio, la interfaz de usuario y la gestión de acciones están separadas. Esto facilita la mantenibilidad y escalabilidad.
+
+### Proyecto ciao:
+
+#### Patrones de Diseño:
+
+- Strategy Pattern: Se emplea para permitir diferentes estrategias de notificación según las preferencias del usuario. Por ejemplo, diferentes estrategias para notificar a través de correo electrónico o webhooks.
+Command Pattern: Puede ser usado para representar comandos asociados con la comprobación del estado de las URL. Por ejemplo, un comando para iniciar una verificación.
+#### Paradigma de Diseño:
+
+- Programación Funcional: La programación funcional podría ser adecuada, especialmente al manejar cambios de estado y notificaciones como funciones puras que no tienen efectos secundarios.
+#### Arquitectura Software:
+
+- Arquitectura Basada en Eventos: ciao utiliza una arquitectura basada en eventos, generando eventos al verificar el estado de las URL y permitiendo reacciones de otros componentes. Esto proporciona flexibilidad y extensibilidad.
