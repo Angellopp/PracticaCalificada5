@@ -278,12 +278,39 @@ Y verificamos que funciona correctamente la pagina:
  Y que tenems las pruebas pendientes:
 ![Alt text](image-5.png)
 
+## Preguntas:
+1. Completa el escenario restrict to movies with PG or R ratings in filter_movie_list.feature. Puedes utilizar las definiciones de pasos existentes en web_steps.rb para marcar y desmarcar las casillas correspondientes, enviar el formulario y comprobar si aparecen las películas correctas (y, lo que es igualmente importante, no aparecen las películas con clasificaciones no seleccionadas).
+
+Usamo metdos ya implementados anteiorrmente :
+
+```ruby
+Scenario: restrict to movies with "PG" or "R" ratings
+Given I check the following ratings: PG, R
+And I uncheck the following ratings: G, PG-13
+When I submit the search form on the homepage
+Then I should see the following movies:
+    | title                   |
+    | Aladdin                 |
+    | The Terminator          |
+    | When Harry Met Sally    |
+    | The Help                |
+    | Chocolat                |
+    | Amelie                  |
+    | The Incredibles         |
+    | Raiders of the Lost Ark |
+And I should not see the following movies:
+    | title                 |
+    | 2001: A Space Odyssey |
+    | Chicken Run           |
+```
+2. Dado que es tedioso repetir pasos como When I check the "PG" checkbox, And I check the "R" checkbox, etc., crea una definición de paso que coincida con un paso como, por ejemplo: Given I check the following ratings: G, PG, R. Esta definición de un solo paso solo debe marcar las casillas especificadas y dejar las demás casillas como estaban.
+
+
 ### PArte 3: Para el siguiente ejercicio utiliza la lista de proyectos Rails de código abierto en Open Source Rails: https://github.com/gramantin/awesome-rails#open-source-rails-apps 
 
-## 1.	Describa uno o más patrones de diseño que podrían ser aplicados al diseño del sistema.
-
-## 2.	Dado un sistema simple que responde a una historia de usuario concreta, analice y elija un paradigma de diseño adecuado
-## 3.	Analice y elija una arquitectura software apropiada que se ajuste a una historia de usuario concreta de este sistema. ¿La implementación en el sistema de esa historia de usuario refleja su idea de arquitectura?
+1.	Describa uno o más patrones de diseño que podrían ser aplicados al diseño del sistema.
+2.	Dado un sistema simple que responde a una historia de usuario concreta, analice y elija un paradigma de diseño adecuado
+3.	Analice y elija una arquitectura software apropiada que se ajuste a una historia de usuario concreta de este sistema. ¿La implementación en el sistema de esa historia de usuario refleja su idea de arquitectura?
 
 ### Proyecto Calagator:
 
