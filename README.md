@@ -318,6 +318,16 @@ Given /^I check the following ratings: (.*)$/ do |rating_list|
 En este paso, se espera recibir un argumento llamado ``rating_list``,
  que es una lista de calificaciones separadas por comas. El código divide esta lista en calificaciones individuales y, luego, itera sobre cada calificación. Dentro del ciclo, se marca una casilla de verificación correspondiente a cada calificación utilizando la función ``check``.
 
+3. Dado que es tedioso especificar un paso para cada película individual que deberíamos ver, agrega una definición de paso para que coincida con un paso como: “Then I should see the following movies".
+  
+Definimos el paso ``Then I should see the following movies`` en el archivo ``features/movies_step.rb`` para evitar la repetición de pasos
+
+```ruby
+Then /^I should see the following movies:$/ do |movies_table|
+        movies_table.diff!(tableish('table#movies tbody tr', 'td,th'))
+    end
+```
+Esperamos un argumento llamado movies_table, que es una tabla con las películas esperadas. El código utiliza la función diff! para comparar la tabla esperada con una tabla real generada utilizando la función tableish.
 
 ### PArte 3: Para el siguiente ejercicio utiliza la lista de proyectos Rails de código abierto en Open Source Rails: https://github.com/gramantin/awesome-rails#open-source-rails-apps 
 
